@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Unit Converter{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card my-5 shadow rounded">
+                <div class="card-body">
+                    <!-- Title with Custom Font and Bold Styling -->
+                    <h1 class="display-5 mb-3" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: bold; color: #2C3E50; text-shadow: 2px 2px 4px #aaa;">
+                        Unit Converter
+                    </h1>
+
+                    <!-- Simplified Subtitle -->
+                    <p class="lead text-muted mt-3" style="font-size: 1.25rem;">
+                        Quickly convert units of length, weight, and temperature with ease and accuracy.
+                    </p>
+
+                    <hr class="my-4">
+                    
+                    <p>Select a measurement type to get started:</p>
+                    
+                    <!-- Conversion Buttons -->
+                    <div class="d-flex justify-content-around mt-4">
+                        <a href="{{ url_for('length_conversion') }}" class="btn btn-outline-primary btn-lg" id="length-btn">
+                            <i class="fa fa-ruler"></i> Length
+                        </a>
+                        <a href="{{ url_for('weight_conversion') }}" class="btn btn-outline-success btn-lg" id="weight-btn">
+                            <i class="fa fa-weight"></i> Weight
+                        </a>
+                        <a href="{{ url_for('temperature_conversion') }}" class="btn btn-outline-warning btn-lg" id="temperature-btn">
+                            <i class="fa fa-thermometer-half"></i> Temperature
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

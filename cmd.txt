@@ -1,0 +1,13 @@
+python -m venv .venv
+.venv\Scripts\activate
+python -m pytest tests/
+python -m pytest tests/ --cov-report html:cov_html  --cov=. --cov-config .coveragerc
+
+
+.venv\Scripts\activate
+python main.py
+
+https://www.loom.com/share/b4a39d39dd104212bf09ce1890312d97?sid=82a2d41e-4b94-4517-9d7e-62ed2066cc43
+
+
+python tests/test_fonctionnel_selenium.py

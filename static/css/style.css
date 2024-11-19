@@ -1,0 +1,123 @@
+/* style.css */
+
+/* Sidebar styling */
+.sidebar {
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding-top: 30px;
+    padding-left: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.bg-light-gray {
+    background-color: #f0f0f0;
+}
+
+.sidebar-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Form Card Styling */
+.card0 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 40px 50px; /* Increased padding */
+    width: 100%; /* Make card take up full width available */
+    max-width: 1100px; /* Limit max width to ensure it doesn’t stretch too far */
+}
+
+/* Form field styling */
+.form-card .form-group {
+    margin-bottom: 20px !important; /* Increase spacing between form fields */
+}
+
+.form-card input {
+    padding: 12px 15px; /* Larger padding for input fields */
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    max-width: 100%; /* Ensure inputs take up the full width of their container */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Increase font size for better readability */
+    color: #2C3E50;
+}
+
+.form-card input:focus {
+    border: 1px solid skyblue;
+    outline: none;
+    box-shadow: 0 0 0 1.5px skyblue;
+}
+
+/* Button styling */
+/* .btn-success {
+    height: 50px;
+    background-color: #28a745;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 1.2rem;
+} */
+
+.btn-success {
+    font-weight: bold; /* Makes the font bold */
+    background-color: #28a745; /* Change to a more vibrant green */
+    color: white; /* White text */
+    border: none; /* Removes border */
+    padding: 12px 24px; /* Adds more padding */
+    font-size: 1.2rem; /* Increases the font size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Adds shadow to make it stand out */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darken on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+
+/* Spacing inside the form card */
+.form-card {
+    padding: 40px;
+}
+
+/* Format result card */
+.result-card {
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Format result card title */
+.result-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.result-output {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h3.text-center {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Custom font */
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #2C3E50; /* Darker color */
+    text-shadow: 2px 2px 4px #aaa; /* Adding subtle shadow */
+}
+
+h1.text-center {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Custom font */
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #2C3E50; /* Darker color */
+    text-shadow: 2px 2px 4px #aaa; /* Adding subtle shadow */
+}

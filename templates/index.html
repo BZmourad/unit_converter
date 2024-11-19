@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Unit Converter{% endblock %}
+{% block content %}
+<!-- Form inside a larger card -->
+<div class="container-fluid px-0" id="bg-div">
+    <div class="row justify-content-center">
+        <div class="col-lg-11 col-12">
+            <div class="card card0 shadow-lg">
+                <div class="row">
+                    <div class="col-lg-3 bg-light border-right" id="sidebar-wrapper">
+                        <div class="sidebar-heading pt-5 pb-4">
+                            <strong>Select Measurement</strong>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="{{ url_for('length_conversion') }}" id="tab1" class="tabs list-group-item bg-light {% if active_tab == 'length' %}active{% endif %}">
+                                <div class="list-div my-2">
+                                    <div class="fa fa-ruler"></div>&nbsp;&nbsp; Length
+                                </div>
+                            </a>
+                            <a href="{{ url_for('weight_conversion') }}" id="tab2" class="tabs list-group-item bg-light {% if active_tab == 'weight' %}active{% endif %}">
+                                <div class="list-div my-2">
+                                    <div class="fa fa-weight"></div>&nbsp;&nbsp; Weight
+                                </div>
+                            </a>
+                            <a href="{{ url_for('temperature_conversion') }}" id="tab3" class="tabs list-group-item bg-light {% if active_tab == 'temperature' %}active{% endif %}">
+                                <div class="list-div my-2">
+                                    <div class="fa fa-thermometer-half"></div>&nbsp;&nbsp;&nbsp; Temperature
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="tab-content">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <div class="form-card p-5">
+                                        <h3 class="mt-0 mb-4 text-center">Unit Converter</h3>
+                                            
+                                        <!-- Conditional Rendering -->
+                                        {% if not result %}
+                                            <!-- Show form is no result -->
+                                            <form method="POST">
+                                                {{ form.hidden_tag() }} <!-- Generates the CSRF token -->
+                                                <div class="form-group">
+                                                    {{ form.value.label }}
+                                                    {{ form.value(class="form-control") }}
+                                                </div>
+                                                <div class="form-group">
+                                                    {{ form.from_unit.label }}
+                                                    {{ form.from_unit(class="form-control") }}
+                                                </div>
+                                                <div class="form-group">
+                                                    {{ form.to_unit.label }}
+                                                    {{ form.to_unit(class="form-control") }}
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" value="Convert" class="btn btn-success placeicon btn-block" id="submit">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        {% else %}
+                                            <!-- Show result if available -->
+                                            <div class="result-card text-center">
+                                                <p class="result-title">Result of your calculation</p>
+                                                <p class="result-output" id="result-output">
+                                                    {{ "{:,.2f}".format(form.value.data) }} {{ form.from_unit.data }} = 
+                                                {{ "{:,.2f}".format(result) }} {{ form.to_unit.data }}
+                                                </p>
+                                                <form method="GET">
+                                                    <button class="btn btn-secondary btn-block">Reset</button>
+                                                </form>
+                                            </div>
+                                        {% endif %}
+                                        <!-- Display any flash messages (conversion results) -->
+                                        {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            <div class="mt-4">
+                                                {% for category, message in messages %}
+                                                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    {% endwith %}
+                                    </div>
+                                </div>
+                            </div> <!-- End row -->
+                        </div>
+                    </div>
+                </div> <!-- End of row -->
+            </div> <!-- End of card -->
+        </div> <!-- End col-lg-9 -->
+    </div> <!-- End row justify-content-center -->
+</div> <!-- End container -->
+{% endblock %}
